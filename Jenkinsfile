@@ -14,19 +14,15 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 '''
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Test') {
             steps {
                 echo "Testing.."
                 sh '''
-                echo "doing test stuff.."
-                if [ -f "app.py" ]; then
-                    python3 app.py
-                else
-                    echo "Error: app.py not found"
-                    exit 1
-                fi
+                python3 app.py
+                python3 app.py --name="Jenkins Test Aki"
                 '''
             }
         }

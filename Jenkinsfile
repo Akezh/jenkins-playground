@@ -12,9 +12,10 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff.."
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install -r requirements.txt
                 '''
-                sh 'pip install -r requirements.txt'
             }
         }
         stage('Test') {

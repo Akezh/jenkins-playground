@@ -4,9 +4,9 @@ pipeline {
             label 'docker-jenknins-agent-python'
             }
       }
-      triggers {
+    triggers {
         githubPush()
-      }
+    }
     stages {
         stage('Build') {
             steps {

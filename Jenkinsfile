@@ -4,9 +4,9 @@ pipeline {
             label 'docker-jenknins-agent-python'
             }
       }
-    triggers {
-        pollSCM 'H/1 * * * *'
-    }
+      triggers {
+        githubPush()
+      }
     stages {
         stage('Build') {
             steps {

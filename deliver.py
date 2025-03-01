@@ -1,1 +1,0 @@
-print("Deliver from python script...")

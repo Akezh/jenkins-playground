@@ -21,8 +21,13 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff.."
+                if [ -f "app.py" ]; then
+                    python3 app.py
+                else
+                    echo "Error: app.py not found"
+                    exit 1
+                fi
                 '''
-                python3 app.py
             }
         }
         stage('Deliver') {
